@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using Unicam.Paradigmi.FirstConsole;
 
-var fileService = new FileService();
-fileService.Exec();
+var adoNetService = new AdoNetService();
+adoNetService.Exec();
+//var fileService = new FileService();
+//fileService.Exec();
 /*var list = new ArrayList();
 list.Add(new Bicicletta());
 list.Add(new Automobile());
