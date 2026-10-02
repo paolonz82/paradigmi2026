@@ -1,0 +1,30 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+
+namespace Unicam.Paradigmi.FirstConsole
+{
+    public class DateConverter : JsonConverter<DateTime>
+    {
+        private readonly string _format;
+        public DateConverter() : this("dd/MM/yyyy")
+        {
+            
+        }
+        public DateConverter(string format)
+        {
+            _format = format;
+        }
+        public override DateTime Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        {
+            return DateTime.ParseExact(reader.GetString(), _format,null);
+        }
+
+        public override void Write(Utf8JsonWriter writer, DateTime value, JsonSerializerOptions options)
+        {
+            writer.WriteStringValue(value.ToString(_format));
+        }
+    }
+}
