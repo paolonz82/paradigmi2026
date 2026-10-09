@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Unicam.Paradigmi.GestoreMusicale.Domain/Unicam.Paradigmi.GestoreMusicale.Domain.csproj" />
+  <Project Path="Unicam.Paradigmi.GestoreMusicale.Infrastructure/Unicam.Paradigmi.GestoreMusicale.Infrastructure.csproj" />
+</Solution>
