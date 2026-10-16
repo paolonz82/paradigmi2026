@@ -17,7 +17,7 @@ namespace Unicam.Paradigmi.GestoreMusicale.Infrastructure.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "10.0.12")
+                .HasAnnotation("ProductVersion", "10.0.13")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -50,6 +50,7 @@ namespace Unicam.Paradigmi.GestoreMusicale.Infrastructure.Migrations
 
                     b.Property<string>("Descrizione")
                         .IsRequired()
+                        .HasMaxLength(-1)
                         .HasColumnType("varchar")
                         .HasColumnName("DescrizioneAlbum");
 
@@ -66,8 +67,8 @@ namespace Unicam.Paradigmi.GestoreMusicale.Infrastructure.Migrations
                         .HasColumnType("varchar")
                         .HasColumnName("NomeAlbum");
 
-                    b.Property<int>("Prezzo")
-                        .HasColumnType("int");
+                    b.Property<decimal>("Prezzo")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("IdAlbum");
 

@@ -10,7 +10,7 @@ namespace Unicam.Paradigmi.GestoreMusicale.Domain.Entities
         public string Nome { get; set; } = string.Empty;
         public string Descrizione { get; set; } = string.Empty;
         public DateTime DataUscita { get; set; }
-        public int Prezzo { get; set; }
+        public decimal Prezzo { get; set; }
         public string Isbn { get; set; } = string.Empty;
         public int IdArtista { get; set; }
         public virtual Artista Artista { get; set; } = null!;
