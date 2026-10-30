@@ -1,0 +1,27 @@
+﻿@using System.Security.Claims
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    var identity = User.Identity as ClaimsIdentity;
+}
+<table>
+    <tr>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Valore</th>
+            </tr>
+           
+        </thead>
+        <tbody>
+            @foreach(var claim in identity.Claims)
+            {
+                <tr>
+                    <td>@claim.Type</td>
+                    <td>@claim.Value</td>
+                </tr>
+            }
+        </tbody>
+    </tr>
+</table>

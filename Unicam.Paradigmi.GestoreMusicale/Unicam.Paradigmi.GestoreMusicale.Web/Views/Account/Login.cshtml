@@ -1,0 +1,31 @@
+﻿
+@model Unicam.Paradigmi.GestoreMusicale.Web.ViewModels.LogonViewModel
+
+<form asp-action="Login" asp-controller="Account">
+
+    <div class="row">
+        <div class="col-sm-2">
+            <label class="form-label">Username</label>
+        </div>
+        <div class="col-sm-6">
+            <input type="text" asp-for="Username" class="form-control" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2">
+            <label class="form-label">Password</label>
+        </div>
+        <div class="col-sm-6">
+            <input type="password" asp-for="Password" class="form-control" />
+            <input type="hidden" asp-for="ReturnUrl" />
+        </div>
+    </div>
+    <button class="btn btn-success">Autenticati</button>
+
+</form>
+
+<a href="/Account/Microsoft">
+<div class="btn btn-danger">
+    Autenticati con Microsoft Entra Id
+</div>
+</a>

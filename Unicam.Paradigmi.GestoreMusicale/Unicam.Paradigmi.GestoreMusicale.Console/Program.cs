@@ -1,12 +1,95 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
+using System.Diagnostics;
 using Unicam.Paradigmi.GestoreMusicale.Domain.Entities;
 using Unicam.Paradigmi.GestoreMusicale.Infrastructure.Persistence.Contexts;
 
 var context = new GestoreMusicaleContext();
 
-LazyLoading();
 
+GetNomeAlbumAsync(2);
+string GetNomeAlbum(int id)
+{
+    return context.Albums.Where(w => w.IdAlbum == id)
+        .Select(s => s.Nome).First();
+}
+async Task<string> GetNomeAlbumAsync(int id)
+{
+    
+    return await context
+            .Albums
+            .Where(w => w.IdAlbum == id)
+            .Select(s => s.Nome)
+            .FirstAsync();
+}
+/*
+List<long> list = new List<long>();
+for (long i = 1; i <= 1000000000; i++)
+{
+    list.Add(i);
+}
+await AvvioOperazioneSingoloThread(list);
+await AvvioOperazioneMultiThread(list);
+*/
+async Task AvvioOperazioneSingoloThread(List<long> list ) {
+
+    var stopWatch = new Stopwatch();
+    stopWatch.Start();
+    var result = await Task<long>.Run(() =>
+    {
+        long result = 0;
+        foreach (var item in list)
+        {
+            result += item * item;
+        }
+        return result;
+    });
+    Console.WriteLine($"Risultato singolo thread: {result} - Elapsed time : {stopWatch.Elapsed.TotalSeconds}");
+}
+
+async Task AvvioOperazioneMultiThread(List<long> list)
+{
+    var list1 = list.Where(x => x % 2 == 0).ToList();
+    var list2 = list.Where(x => x % 2 == 1).ToList();
+    var task1 = new Task<long>(() =>
+    {
+        long result = 0;
+        foreach (var item in list1)
+        {
+            result += item * item;
+        }
+        return result;
+    });
+    var task2 = new Task< long>(() =>
+    {
+        long result = 0;
+        foreach (var item in list2)
+        {
+            result += item * item;
+        }
+        return result;
+    });
+    var stopWatch = new Stopwatch();
+    stopWatch.Start();
+    task1.Start();
+    task2.Start();
+    var results = await Task.WhenAll(task1, task2);
+  
+    Console.WriteLine($"Risultato multi thread: {results.Sum()} - Elapsed time : {stopWatch.Elapsed.TotalSeconds}");
+}
+
+/*
+ var task = await Task.Run<string>(() =>
+{
+    throw new Exception("Test Exception");
+    System.Threading.Thread.Sleep(10000);
+    Console.WriteLine("Task secondario completato");
+    return "Output Task secondario";
+});
+*/
+
+//Console.WriteLine($"Task Secondario : {task.Result}");
+Console.WriteLine("Task primario in esecuzione");
 void LazyLoading()
 {
     var album = context.Albums

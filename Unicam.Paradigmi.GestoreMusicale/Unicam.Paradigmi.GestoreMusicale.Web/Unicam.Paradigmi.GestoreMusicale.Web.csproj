@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="10.0.14" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Unicam.Paradigmi.GestoreMusicale.Application\Unicam.Paradigmi.GestoreMusicale.Application.csproj" />
+    <ProjectReference Include="..\Unicam.Paradigmi.GestoreMusicale.Infrastructure\Unicam.Paradigmi.GestoreMusicale.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
