@@ -24,6 +24,7 @@ namespace Unicam.Paradigmi.GestoreMusicale.Infrastructure.Persistence.Contexts
         public DbSet<Artista> Artisti { get; set; }
         public DbSet<Genere> Generi { get; set; }
 
+       /*
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
@@ -37,7 +38,7 @@ namespace Unicam.Paradigmi.GestoreMusicale.Infrastructure.Persistence.Contexts
             optionsBuilder.UseSqlServer("Server=LOCALHOST;Database=GestoreMusicale;Trusted_Connection=True;Trust Server Certificate=true"
                 ,b=> b.MigrationsAssembly("Unicam.Paradigmi.GestoreMusicale.Infrastructure"));
             
-        }
+        }*/
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

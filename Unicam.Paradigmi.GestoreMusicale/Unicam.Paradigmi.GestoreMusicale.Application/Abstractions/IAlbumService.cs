@@ -7,6 +7,6 @@ namespace Unicam.Paradigmi.GestoreMusicale.Application.Abstractions
 {
     public interface IAlbumService
     {
-        void AddAlbum(Album album);
+        Album AddAlbum(Album album);
     }
 }

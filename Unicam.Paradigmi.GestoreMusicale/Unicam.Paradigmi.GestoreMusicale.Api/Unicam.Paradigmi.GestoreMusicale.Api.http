@@ -1,0 +1,6 @@
+@Unicam.Paradigmi.GestoreMusicale.Api_HostAddress = http://localhost:5171
+
+GET {{Unicam.Paradigmi.GestoreMusicale.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

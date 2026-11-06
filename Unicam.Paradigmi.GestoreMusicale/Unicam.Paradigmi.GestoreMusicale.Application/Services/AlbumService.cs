@@ -14,11 +14,13 @@ namespace Unicam.Paradigmi.GestoreMusicale.Application.Services
         {
             
         }
-        public void AddAlbum(Album album)
+        public Album AddAlbum(Album album)
         {
             //Scrittura sul database del nuovo album
-            
+
             //Invio dell'email in base al genere dell'album ai subscriber
+            album.IdAlbum = 5;
+            return album;
         }
     }
 }

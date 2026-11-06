@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>b51a903c-ffa6-4cc4-803a-f942dfe12912</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="12.2.0" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.5" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.14" />
+    <PackageReference Include="SharpGrip.FluentValidation.AutoValidation.Mvc" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Unicam.Paradigmi.GestoreMusicale.Application\Unicam.Paradigmi.GestoreMusicale.Application.csproj" />
+    <ProjectReference Include="..\Unicam.Paradigmi.GestoreMusicale.Domain\Unicam.Paradigmi.GestoreMusicale.Domain.csproj" />
+    <ProjectReference Include="..\Unicam.Paradigmi.GestoreMusicale.Infrastructure\Unicam.Paradigmi.GestoreMusicale.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
