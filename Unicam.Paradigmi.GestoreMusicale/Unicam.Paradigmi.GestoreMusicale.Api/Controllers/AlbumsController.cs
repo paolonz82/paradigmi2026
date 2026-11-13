@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Unicam.Paradigmi.GestoreMusicale.Api.Models.Requests;
 using Unicam.Paradigmi.GestoreMusicale.Api.Validators;
@@ -16,6 +17,7 @@ namespace Unicam.Paradigmi.GestoreMusicale.Api.Controllers
        Inoltre gestisce automaticamente la fonte del Model Binding, quindi non c'è bisogno di andare 
        a specificare il [FromBody] prima dell'argomento della API
      */
+    [Authorize(AuthenticationSchemes ="Azure", Policy = "OnlyValidUsers")]
     public class AlbumsController : Controller
     {
         private readonly IAlbumService _albumService;

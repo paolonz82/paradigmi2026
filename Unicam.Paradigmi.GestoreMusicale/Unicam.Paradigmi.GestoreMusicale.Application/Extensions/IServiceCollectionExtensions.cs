@@ -12,6 +12,7 @@ namespace Unicam.Paradigmi.GestoreMusicale.Application.Extensions
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
             services.AddScoped<IAlbumService, AlbumService>();
+            services.AddScoped<IJwtService, JwtService>();
             return services;
         }
     }
